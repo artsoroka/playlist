@@ -14,7 +14,7 @@ router.get('/', function(req,res){
 			res.status(500).json({
 				err: err
 			}); 
-		})
+		}); 
 
 }); 
 
@@ -35,8 +35,25 @@ router.get('/:userId', function(req,res){
 			res.status(500).json({
 				err: err
 			}); 
-		})
+		}); 
 
+}); 
+
+router.delete('/:userId', function(req,res){
+	db('users')
+		.where('id', req.params.userId)
+		.del()
+		.then(function(deleted){
+			if( ! deleted ) return res.status(404).json({
+				err: 'No record found with such id, nothing to delete' 
+			}); 
+			res.status(200).json({
+				status: 'deleted' 
+			}); 
+		})
+		.catch(function(err){
+			res.status(500).json(err); 
+		}); 
 }); 
 
 module.exports = router; 

@@ -25,4 +25,5 @@ $ npm run db
 |request   | url  | desctiption  |
 |---|---|---|
 | ```GET```  | /users  | List all users |
-| ```GET```  | /users/{userId}  | Get user by id | 
+| ```GET```  | /users/{userId}  | Get user by id |
+| ```DELETE```  | /users/{userId}  | Delete user | 
