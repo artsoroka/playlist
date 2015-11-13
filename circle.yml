@@ -1,0 +1,17 @@
+machine: 
+  node:
+    version: 
+      v0.10.33
+  hosts: 
+    main-srv: 188.166.44.244
+
+dependencies:
+  pre:
+    - npm install -g jasmine-node
+    - echo "create database playlist; grant all privileges on playlist.* to 'playlistadmin'@'%'" | mysql -u root 
+    - npm run db 
+    - npm run server 
+    
+test: 
+  override: 
+    - jasmine-node --verbose --color --growl --forceexit --captureExceptions ./test/* 
