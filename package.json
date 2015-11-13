@@ -4,7 +4,11 @@
   "description": "music app where people can share playlists",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "db:migrate": "knex migrate:latest --cwd ./db", 
+    "db:seed": "knex seed:run --cwd ./db", 
+    "db": "npm run db:migrate && npm run db:seed",
+    "server": "node app.js"
   },
   "repository": {
     "type": "git",
