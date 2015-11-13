@@ -1,5 +1,4 @@
 var express    = require('express'); 
-var bodyParser = require('body-parser'); 
 var app        = express(); 
 var config     = require('./config'); 
 var routes 	   = require('./routes'); 
@@ -12,7 +11,7 @@ app.set('views', __dirname + '/views');
 app.use('/', routes); 
 
 app.get('*', function(req,res){
-	res.status(404).send('wow no page found'); 
+	res.status(404).send('no page found'); 
 }); 
 
 app.listen(config.App.port, function(){
