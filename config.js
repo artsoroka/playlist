@@ -8,4 +8,4 @@ module.exports = {
 	    database : process.env.PL_DB_NAME || 'playlist', 
 	    port	 : process.env.PL_DB_PORT || 3306
 	}
-}
+}; 
