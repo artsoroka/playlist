@@ -8,9 +8,10 @@ machine:
 dependencies:
   pre:
     - npm install -g jasmine-node
+    - npm install -g pm2 
     - echo "create database playlist; grant all privileges on playlist.* to 'playlistadmin'@'%'" | mysql -u root 
     - npm run db 
-    - npm run server 
+    - pm2 start --name=playlist app.js  
     
 test: 
   override: 
