@@ -24,17 +24,15 @@ describe("User api endpoints", function() {
         expect(error).toBe(null);
         expect(response.statusCode).toEqual(200); 
         var data = JSON.parse(body); 
-        expect(data.length).toEqual(1); 
-        if( ! data.length) return done(false); 
-        expect(data[0].name).toEqual('admin');
-        
+        expect(data).not.toBe(null); 
+        expect(data.name).toEqual('admin'); 
+
         request.get(baseUrl + '/api/users/2', function(error, response, body){
             expect(error).toBe(null);
             expect(response.statusCode).toEqual(200); 
             var data = JSON.parse(body); 
-            expect(data.length).toEqual(1); 
-            if( ! data.length) return done(false); 
-            expect(data[0].name).toEqual('user1');
+            expect(data).not.toBe(null); 
+            expect(data.name).toEqual('user1'); 
             done();     
         });
     }); 

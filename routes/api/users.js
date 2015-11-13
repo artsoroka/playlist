@@ -28,8 +28,8 @@ router.get('/:userId', function(req,res){
 				return res.status(404).json({
 					err: 'No user found with such id' 
 				}); 
-
-			res.json(user); 
+			
+			res.json(user[0]); 
 		})
 		.catch(function(err){
 			res.status(500).json({
