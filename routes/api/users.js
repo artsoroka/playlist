@@ -5,7 +5,7 @@ var db 		= require('../../lib/db.js');
 router.get('/', function(req,res){
 	
 	db
-		.select('name')
+		.select(['id','name'])
 		.from('users')
 		.then(function(users){
 			res.json(users); 
